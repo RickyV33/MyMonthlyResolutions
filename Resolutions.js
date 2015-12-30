@@ -8,6 +8,9 @@ if (Meteor.isClient) {
       } else {
         return Resolutions.find();
       }
+    },
+    hideFinished: function() {
+      return Session.get('hideFinished');
     }
   });
 
@@ -35,6 +38,9 @@ if (Meteor.isClient) {
     }
   });
 
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 }
 
 if (Meteor.isServer) {
